@@ -19,9 +19,9 @@ namespace ConsoleApp1
 
     public class Program
     {
-        public static string xmlURL = "Your XML URL";
-        public static string xmlErrorURL = "Your Error XML URL";
-        public static string xsdURL = "Your XSD URL";
+        public static string xmlURL = "https://durnsumps.github.io/da-xml-paige/Hotels.xml";
+        public static string xmlErrorURL = "https://durnsumps.github.io/da-xml-paige/HotelsErrors.xml";
+        public static string xsdURL = "https://durnsumps.github.io/da-xml-paige/Hotels.xsd";
 
         public static void Main(string[] args)
         {

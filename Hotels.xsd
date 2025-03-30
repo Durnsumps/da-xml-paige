@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="Hotels">
-        <xs:element name="Hotel">
-            <xs:complexType>
-                <xs:sequence>
-                    <xs:element name="Name" />
-                    <xs:element name="Phone" />
-                    <xs:element name="Address">
-                        <xs:complexType>
-                            <xs:sequence>
-                                <xs:element name="Number" />
-                                <xs:element name="Street" />
-                                <xs:element name="City" />
-                                <xs:element name="State" />
-                                <xs:element name="Zip" />
-                                <xs:element name="NearstAirport" />
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element name="Rating" />
-                </xs:sequence>
-            </xs:complexType>
-        </xs:element>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Hotel" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Name" type="xs:string" />
+                            <xs:element name="Phone" type="xs:string" maxOccurs="unbounded" />
+                            <xs:element name="Address">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Number" type="xs:integer" />
+                                        <xs:element name="Street" type="xs:string" />
+                                        <xs:element name="City" type="xs:string" />
+                                        <xs:element name="State" type="xs:string" />
+                                        <xs:element name="Zip" type="xs:integer" />
+                                    </xs:sequence>
+                                    <xs:attribute name="NearstAirport" type="xs:string"
+                                        use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="Rating" type="xs:decimal" use="optional" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
     </xs:element>
 
 </xs:schema>

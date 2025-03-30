@@ -1,2 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Hotels.xsd">
+    <Hotel Rating="4.2">
+        <Name>Westin</Name>
+        <Phone>480-968-8885</Phone>
+        <Phone>800-937-8461</Phone>
+        <Address NearstAirport="Sky Harbor">
+            <Number>11</Number>
+            <Street>E 7th St</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+    </Hotel>
 
+    <Hotel Rating="4.2">
+        <Name>Comfort Suites Glendale</Name>
+        <Phone>623-271-9005</Phone>
+        <Address NearstAirport="Sky Harbor">
+            <Number>9824</Number>
+            <Street>W Camelback Rd</Street>
+            <City>Glendale</City>
+            <State>AZ</State>
+            <Zip>85303</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.1">
+        <Name>VAI Resort</Name>
+        <Phone>623-265-5800</Phone>
+        <Address NearstAirport="Sky Harbor">
+            <Number>9505</Number>
+            <Street>Cardinals Way</Street>
+            <City>Glendale</City>
+            <State>AZ</State>
+            <Zip>85305</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.7">
+        <Name>Renaissance Hotel</Name>
+        <Phone>623-937-3700</Phone>
+        <Phone>480-518-8089</Phone>
+        <Address NearstAirport="Sky Harbor">
+            <Number>9495</Number>
+            <Street>W Entertainment Blvd</Street>
+            <City>Glendale</City>
+            <State>AZ</State>
+            <Zip>85305</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="3.9">
+        <Name>Casa del Sol Resort West</Name>
+        <Phone>888-472-0850</Phone>
+        <Address NearstAirport="Sky Harbor">
+            <Number>11411</Number>
+            <Street>n 91st Ave</Street>
+            <City>Peoria</City>
+            <State>AZ</State>
+            <Zip>85345</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="3.0">
+        <Name>Motel 6 Glendale AZ</Name>
+        <Phone>623-939-9431</Phone>
+        <Phone>800-899-9841</Phone>
+        <Address NearstAirport="Sky Harbor">
+            <Number>7116</Number>
+            <Street>N 59th Ave</Street>
+            <City>Glendale</City>
+            <State>AZ</State>
+            <Zip>85301</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="2.6">
+        <Name>Budget Inn</Name>
+        <Phone>602-442-4420</Phone>
+        <Address NearstAirport="Sky Harbor">
+            <Number>5259</Number>
+            <Street>W McDowell Rd</Street>
+            <City>Phoenix</City>
+            <State>AZ</State>
+            <Zip>85035</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.1">
+        <Name>Sonder Ida</Name>
+        <Phone>617-300-0956</Phone>
+        <Address NearstAirport="Sky Harbor">
+            <Number>250</Number>
+            <Street>E McKinley St</Street>
+            <City>Phoenix</City>
+            <State>AZ</State>
+            <Zip>85004</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.0">
+        <Name>Home2 Suites by Hilton Phoenix Downtown</Name>
+        <Phone>602-603-1111</Phone>
+        <Address NearstAirport="Sky Harbor">
+            <Number>125</Number>
+            <Street>E Jackson St</Street>
+            <City>Phoenix</City>
+            <State>AZ</State>
+            <Zip>85004</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.2">
+        <Name>Graduate by Hilton Tempe</Name>
+        <Phone>480-967-9431</Phone>
+        <Phone>833-472-3468</Phone>
+        <Address NearstAirport="Sky Harbor">
+            <Number>225</Number>
+            <Street>E Apache Blvd</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+    </Hotel>
+</Hotels>

@@ -40,18 +40,53 @@ namespace ConsoleApp1
         // Q2.1
         public static string Verification(string xmlUrl, string xsdUrl)
         {
+            try
+            {
+                XmlReaderSettings settings = new XmlReaderSettings();
+                settings.ValidationType = ValidationType.Schema;
+                settings.Schema.Add(null, xsdUrl);
 
+                string errorMessage = "No Error";
+                settings.ValidationEventHandler += (sender, args) =>
+                {
+                    errorMessage = $"Validation Error: {args.message}";
+                    if (args.Exception != null)
+                    {
+                        errorMessage += $"\nLine: {args.Exception.LineNumber}, Position: {args.Exception.LinePosition}";
+                    }
+                };
 
-            //return "No Error" if XML is valid. Otherwise, return the desired exception message.
+                using (XmlReader reader = XmlReader.Create(xmlUrl, settings))
+                {
+                    while (reader.Read())
+                    {
+
+                    }
+                }
+                return errorMessage;
+            }
+            catch (Exception ex)
+            {
+                return $"Exception occured during validation: {ex.message}";
+            }
         }
 
         public static string Xml2Json(string xmlUrl)
         {
-            
+            try
+            {
+                XDocument doc = XDocument.Load(xmlUrl);
 
-            // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. (JsonConvert.DeserializeXmlNode(jsonText))
-            return jsonText;
+                string jsonText = JsonConvert.SerializeXNode(doc, Formatting.Indented);
 
+                // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. 
+                JsonConvert.DeserializeXmlNode(jsonText);
+                return jsonText;
+            }
+            catch (Exception ex)
+            {
+                return $"Error converting XML to JSON: {ex.message}";
+            }
         }
     }
 

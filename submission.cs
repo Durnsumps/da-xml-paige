@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml.Schema;
 using System.Xml;
+using System.Xml.Linq;
 using Newtonsoft.Json;
 using System.IO;
 
@@ -44,12 +45,12 @@ namespace ConsoleApp1
             {
                 XmlReaderSettings settings = new XmlReaderSettings();
                 settings.ValidationType = ValidationType.Schema;
-                settings.Schema.Add(null, xsdUrl);
+                settings.Schemas.Add(null, xsdUrl);
 
                 string errorMessage = "No Error";
                 settings.ValidationEventHandler += (sender, args) =>
                 {
-                    errorMessage = $"Validation Error: {args.message}";
+                    errorMessage = $"Validation Error: {args.Message}";
                     if (args.Exception != null)
                     {
                         errorMessage += $"\nLine: {args.Exception.LineNumber}, Position: {args.Exception.LinePosition}";
@@ -67,7 +68,7 @@ namespace ConsoleApp1
             }
             catch (Exception ex)
             {
-                return $"Exception occured during validation: {ex.message}";
+                return $"Exception occurred during validation: {ex.Message}";
             }
         }
 
@@ -80,12 +81,14 @@ namespace ConsoleApp1
                 string jsonText = JsonConvert.SerializeXNode(doc, Formatting.Indented);
 
                 // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. 
+                jsonText = jsonText.Replace("\"@", "\"_");
+                
                 JsonConvert.DeserializeXmlNode(jsonText);
                 return jsonText;
             }
             catch (Exception ex)
             {
-                return $"Error converting XML to JSON: {ex.message}";
+                return $"Error converting XML to JSON: {ex.Message}";
             }
         }
     }

@@ -20,9 +20,9 @@ namespace ConsoleApp1
 
     public class Program
     {
-        public static string xmlURL = "https://durnsumps.github.io/da-xml-paige/Hotels.xml";
-        public static string xmlErrorURL = "https://durnsumps.github.io/da-xml-paige/HotelsErrors.xml";
-        public static string xsdURL = "https://durnsumps.github.io/da-xml-paige/Hotels.xsd";
+        public string xmlURL = "https://durnsumps.github.io/da-xml-paige/Hotels.xml";
+        public string xmlErrorURL = "https://durnsumps.github.io/da-xml-paige/HotelsErrors.xml";
+        public string xsdURL = "https://durnsumps.github.io/da-xml-paige/Hotels.xsd";
 
         public static void Main(string[] args)
         {
@@ -48,7 +48,7 @@ namespace ConsoleApp1
                 settings.Schemas.Add(null, xsdUrl);
 
                 string errorMessage = "No Error";
-                settings.ValidationEventHandler += (sender, args) =>
+                settings.ValidationEventHandler += (object sender, args) =>
                 {
                     errorMessage = $"Validation Error: {args.Message}";
                     if (args.Exception != null)
@@ -57,13 +57,8 @@ namespace ConsoleApp1
                     }
                 };
 
-                using (XmlReader reader = XmlReader.Create(xmlUrl, settings))
-                {
-                    while (reader.Read())
-                    {
-
-                    }
-                }
+                XmlReader reader = XmlReader.Create(xmlUrl, settings);
+                while (reader.Read()) { }
                 return errorMessage;
             }
             catch (Exception ex)
@@ -82,7 +77,7 @@ namespace ConsoleApp1
 
                 // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. 
                 jsonText = jsonText.Replace("\"@", "\"_");
-                
+
                 JsonConvert.DeserializeXmlNode(jsonText);
                 return jsonText;
             }

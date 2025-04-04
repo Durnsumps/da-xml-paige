@@ -57,8 +57,10 @@ namespace ConsoleApp1
                     }
                 };
 
-                XmlReader reader = XmlReader.Create(xmlUrl, settings);
-                while (reader.Read()) { }
+                using (XmlReader reader = XmlReader.Create(xmlUrl, settings)) {
+                    while (reader.Read()) { }
+                }
+                
                 return errorMessage;
             }
             catch (Exception ex)
@@ -76,7 +78,8 @@ namespace ConsoleApp1
                 string jsonText = JsonConvert.SerializeXNode(doc, Formatting.Indented);
 
                 // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. 
-                jsonText = jsonText.Replace("\"@", "\"_");
+                jsonText = jsonText.Replace("\"@Rating\"", "\"_Rating\"")
+                              .Replace("\"@NearestAirport\"", "\"_NearestAirport\"");
 
                 JsonConvert.DeserializeXmlNode(jsonText);
                 return jsonText;

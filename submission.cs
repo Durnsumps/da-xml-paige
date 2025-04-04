@@ -20,9 +20,9 @@ namespace ConsoleApp1
 
     public class Program
     {
-        public string xmlURL = "https://durnsumps.github.io/da-xml-paige/Hotels.xml";
-        public string xmlErrorURL = "https://durnsumps.github.io/da-xml-paige/HotelsErrors.xml";
-        public string xsdURL = "https://durnsumps.github.io/da-xml-paige/Hotels.xsd";
+        public static const string xmlURL = "https://durnsumps.github.io/da-xml-paige/Hotels.xml";
+        public static const string xmlErrorURL = "https://durnsumps.github.io/da-xml-paige/HotelsErrors.xml";
+        public static const string xsdURL = "https://durnsumps.github.io/da-xml-paige/Hotels.xsd";
 
         public static void Main(string[] args)
         {
@@ -48,7 +48,7 @@ namespace ConsoleApp1
                 settings.Schemas.Add(null, xsdUrl);
 
                 string errorMessage = "No Error";
-                settings.ValidationEventHandler += (object sender, args) =>
+                settings.ValidationEventHandler += (object sender, ValidationEventArgs args) =>
                 {
                     errorMessage = $"Validation Error: {args.Message}";
                     if (args.Exception != null)
